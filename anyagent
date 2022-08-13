@@ -1,46 +1,37 @@
+
 pipeline {
-  agent any
-  stages {
-    stage('') {
-      steps {
-        sh '''pipeline {
     agent any
     stages {
-        stage(\'BUILD\') {
+        stage('BUILD') {
             steps {
-                sh \'\'\'
+                sh '''
                     #!/bin/bash 
                     pwd 
                     ls
                     echo "This is a BUILD stage"
                     sleep 5
-                \'\'\'  
+                '''  
             }
         }
-        stage(\'DEPLOY\') {
+        stage('DEPLOY') {
             steps {
                 echo "This is a DEPLOY stage"
-                sh \'sleep 5\'
+                sh 'sleep 5'
             }
         }
-        stage(\'TESTING1\') {
+        stage('TESTING1') {
             steps {
-                sh \'echo "This is a TESTING1 stage"\'
-                sh \'sleep 5\'
+                sh 'echo "This is a TESTING1 stage"'
+                sh 'sleep 5'
             }
         }
-        stage(\'TESTING2\') {
+        stage('TESTING2') {
             steps {
-                sh \'\'\'
+                sh '''
                     echo "This is a TESTING2 stage"
                     sleep 5
-                \'\'\'
+                '''
             }
         }
     }
-}'''
-        }
-      }
-
-    }
-  }
+}
