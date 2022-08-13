@@ -29,15 +29,5 @@ pipeline {
                 sh 'sleep 5'
             }
         }
-
-        stage('TESTING2') {
-            agent { label 'master' } 
-            steps {
-                sh '''
-                    echo "This is a master machine"
-                    sleep 5
-                '''
-            }
-        }
     }
 }
