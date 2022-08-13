@@ -29,7 +29,7 @@ pipeline {
                         sh 'sleep 5'
                     }
                 }
-                stage('TESTING2') {
+                stage('TESTING22') {
                     agent { label 'awslx-slave1' } 
                     steps {
                         sh '''
