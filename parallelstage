@@ -22,7 +22,7 @@ pipeline {
         }
         stage('TESTING') {
             parallel {
-                stage('TESTING1') {
+                stage('TESTING11') {
                     agent { label 'awslx-slave2' } 
                     steps {
                         sh 'echo "This is a TESTING1 stage"'
