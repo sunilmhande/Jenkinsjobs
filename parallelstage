@@ -2,7 +2,7 @@ pipeline {
     agent none 
     stages {
         stage('BUILD') {
-            agent any
+             agent { label 'awslx-master' } 
             steps {
                 sh '''
                     #!/bin/bash 
@@ -14,7 +14,7 @@ pipeline {
             }
         }
         stage('DEPLOY') {
-            agent { label 'slave1' } 
+            agent { label 'awslx-slave1' } 
             steps {
                 echo "This is a DEPLOY stage"
                 sh 'sleep 5'
@@ -23,14 +23,14 @@ pipeline {
         stage('TESTING') {
             parallel {
                 stage('TESTING1') {
-                    agent { label 'slave2' } 
+                    agent { label 'awslx-slave2' } 
                     steps {
                         sh 'echo "This is a TESTING1 stage"'
                         sh 'sleep 5'
                     }
                 }
                 stage('TESTING2') {
-                    agent { label 'master' } 
+                    agent { label 'awslx-slave2' } 
                     steps {
                         sh '''
                             echo "This is a TESTING2 stage"
