@@ -1,7 +1,7 @@
 pipeline {
-  agent none
+  agent { label 'awslx-slave1' }
   stages {
-    stage('') {
+    stage('CHECK') {
       steps {
         fileExists 'firstjob'
         sh '''#!/bin/bash
