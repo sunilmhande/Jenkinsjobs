@@ -1,0 +1,28 @@
+pipeline {
+  agent any
+      paramters{
+        string(name: 'BRANCH', description: 'Enter the branch to build' , defaultvalue: 'main')
+        string(name: 'GIT_REPO', description: 'Enter the repo url' , defaultvalue: 'https://github.com/sunilmhande/Jenkinsjobs.git')
+        choice(name: 'STAGE' , choices:['BUILD','TEST','DEPLOY'], description: 'Stages to execute')
+      }
+    stages{
+      parallel{
+        stage('BUILD') {
+          echo "I am inside BUILD"
+          echo "${params.GIT_REPO}"
+          echo "${GIT_REPO}"
+          echo 'params.GIT_REPO'
+          echo $params.GIT_REPO
+         }
+      
+        stage('TEST') {
+          echo "I am inside test"     
+        }
+      }
+      
+        stage('DEPLOY') {
+          echo "I am inside DEPLOY"
+        }
+    }
+}
+    
