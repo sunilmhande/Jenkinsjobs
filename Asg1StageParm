@@ -9,10 +9,10 @@ pipeline {
         stage('BUILD') {
          steps {
           echo "I am inside BUILD"
-          echo "${params.GIT_REPO}"
-          echo "${GIT_REPO}"
-          echo 'params.GIT_REPO'
-          echo $params.GIT_REPO
+          // echo "${params.GIT_REPO}"
+          // echo "${GIT_REPO}"
+          echo params.GIT_REPO
+          // echo $params.GIT_REPO
          }
         }
       
