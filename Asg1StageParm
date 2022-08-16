@@ -8,6 +8,7 @@ pipeline {
     stages{
         stage('BUILD') {
          steps {
+         script {
            if (params.STAGE == 'BUILD') {
             echo "I am inside BUILD"
             // echo "${params.GIT_REPO}"
@@ -15,21 +16,26 @@ pipeline {
             echo params.GIT_REPO
             // echo $params.GIT_REPO
             }
+          }
          }
         }
       
         stage('TEST') {
          steps {
+         script {
           if (params.STAGE == 'TEST') {
             echo "I am inside test"
+         }
          }
       }
       
         stage('DEPLOY') {
          steps {
-          if (params.STAGE == 'DEPLOY') {
+         script { 
+           if (params.STAGE == 'DEPLOY') {
             echo "I am inside DEPLOY"
-         }
+           }
+        }
         }
     }
 }
