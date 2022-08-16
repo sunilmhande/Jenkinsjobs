@@ -6,22 +6,26 @@ pipeline {
         choice(name: 'STAGE' , choices:['BUILD','TEST','DEPLOY'], description: 'Stages to execute')
       }
     stages{
-      parallel {
         stage('BUILD') {
+         steps {
           echo "I am inside BUILD"
           echo "${params.GIT_REPO}"
           echo "${GIT_REPO}"
           echo 'params.GIT_REPO'
           echo $params.GIT_REPO
+         }
         }
       
         stage('TEST') {
-          echo "I am inside test"     
-        }
+         steps {
+          echo "I am inside test"
+         }
       }
       
         stage('DEPLOY') {
+         steps {
           echo "I am inside DEPLOY"
+         }
         }
     }
 }
