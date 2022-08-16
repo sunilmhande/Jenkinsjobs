@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         BRANCH = 'main'
-        GIT_REPO = 'https://github.com/jaintpharsha/devops-june-2022.git'
+        GIT_REPO = 'https://github.com/sunilmhande/Jenkinsjobs.git'
     }
 
     stages {
@@ -25,7 +25,7 @@ pipeline {
         }
 
         stage('DEPLOY') {
-            agent { label 'slave1' } 
+            agent { label 'master' } 
             steps {
                 echo "This is a DEPLOY stage"
                 sh 'sleep 5'
