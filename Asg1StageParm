@@ -8,23 +8,27 @@ pipeline {
     stages{
         stage('BUILD') {
          steps {
-          echo "I am inside BUILD"
-          // echo "${params.GIT_REPO}"
-          // echo "${GIT_REPO}"
-          echo params.GIT_REPO
-          // echo $params.GIT_REPO
+           if (params.STAGE == 'BUILD') {
+            echo "I am inside BUILD"
+            // echo "${params.GIT_REPO}"
+            // echo "${GIT_REPO}"
+            echo params.GIT_REPO
+            // echo $params.GIT_REPO
+            }
          }
         }
       
         stage('TEST') {
          steps {
-          echo "I am inside test"
+          if (params.STAGE == 'TEST') {
+            echo "I am inside test"
          }
       }
       
         stage('DEPLOY') {
          steps {
-          echo "I am inside DEPLOY"
+          if (params.STAGE == 'DEPLOY') {
+            echo "I am inside DEPLOY"
          }
         }
     }
