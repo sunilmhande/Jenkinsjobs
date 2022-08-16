@@ -5,38 +5,36 @@ pipeline {
         string(name: 'GIT_REPO', description: 'Enter the repo url' , defaultValue: 'https://github.com/sunilmhande/Jenkinsjobs.git')
         choice(name: 'STAGE' , choices:['BUILD','TEST','DEPLOY'], description: 'Stages to execute')
       }
-    stages{
+     stages{
         stage('BUILD') {
          steps {
-         script {
-           if (params.STAGE == 'BUILD') {
-            echo "I am inside BUILD"
-            // echo "${params.GIT_REPO}"
-            // echo "${GIT_REPO}"
-            echo params.GIT_REPO
-            // echo $params.GIT_REPO
+            script {
+                 if (params.STAGE == 'BUILD') {
+                  echo "I am inside BUILD"
+                  echo params.GIT_REPO
+                 }
             }
           }
-         }
         }
       
         stage('TEST') {
          steps {
-         script {
-          if (params.STAGE == 'TEST') {
+          script {
+           if (params.STAGE == 'TEST') {
             echo "I am inside test"
+           }
+          }
          }
-         }
-      }
+        }
       
         stage('DEPLOY') {
          steps {
-         script { 
+          script { 
            if (params.STAGE == 'DEPLOY') {
             echo "I am inside DEPLOY"
            }
+          }
         }
-        }
-    }
+       }
 }
     
