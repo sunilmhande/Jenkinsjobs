@@ -22,6 +22,9 @@ pipeline {
         }
       
         stage('TEST') {
+        when {
+              params.STAGE = 'TEST'
+        }
          steps {
           script {
            if (params.STAGE == 'TEST') {
@@ -32,6 +35,9 @@ pipeline {
         }
       
         stage('DEPLOY') {
+        when {
+              params.STAGE = 'DEPLOY'
+        }
          steps {
           script { 
            if (params.STAGE == 'DEPLOY') {
